@@ -193,7 +193,7 @@ incidents_for_final_df = (
     .agg(
         severity=("severity", "mean"),
         reach=("reach", "mean"),
-        novelty=("novelty", "mean"),
+        novelty=("novelty", "sum"),
         **{c: (c, "sum") for c in bool_cols},
         unsharp_incident=("unsharp_incident", "sum"),
         related_countries=("related_countries", lambda x: x.dropna().unique().tolist()),
